@@ -2,16 +2,18 @@ package frc.robot.commands;
 
 import java.util.function.DoubleSupplier;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.ArmLeft;
 
-public class ArmLeftManualCommand extends CommandBase {
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Subsystems.ArmLeft;
+
+public class ArmLeftManualCommand extends Command {
   private final ArmLeft armLeft;
   private final DoubleSupplier supplierL;
  
   public ArmLeftManualCommand(final ArmLeft armLeft, final DoubleSupplier supplierL) {
     this.armLeft = armLeft;
     this.supplierL = supplierL;
+    
     addRequirements(armLeft);
   }
 

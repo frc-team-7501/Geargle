@@ -1,17 +1,15 @@
 package frc.robot.commands;
 
-import java.util.function.DoubleSupplier;
-
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Subsystems.ArmRight;
 
-public class ArmRightManualCommand extends Command {
+public class ArmRightButtonCommand extends Command {
   private final ArmRight armRight;
-  private final DoubleSupplier supplierR;
+  private final double rightSpeed;
  
-  public ArmRightManualCommand(final ArmRight armRight, final DoubleSupplier supplierR) {
+  public ArmRightButtonCommand(final ArmRight armRight, final double rightSpeed) {
     this.armRight = armRight;
-    this.supplierR = supplierR;
+    this.rightSpeed = rightSpeed;
     addRequirements(armRight);
   }
 
@@ -20,8 +18,7 @@ public class ArmRightManualCommand extends Command {
 
   @Override
   public void execute() {
-    double inputR = supplierR.getAsDouble();
-    armRight.manualControl(inputR);
+    armRight.manualControl(rightSpeed);
   }
 
   @Override

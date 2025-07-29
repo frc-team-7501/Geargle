@@ -1,9 +1,9 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.subsystems.DriveTrain;
+import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Subsystems.DriveTrain;
 
-public class DriveConstantCommand extends CommandBase {
+public class DriveConstantCommand extends Command {
   private final DriveTrain driveTrain;
   private final double forwardSpeed;
   private final double rotateSpeed;
