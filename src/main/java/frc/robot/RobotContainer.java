@@ -2,9 +2,8 @@ package frc.robot;
 
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
 import edu.wpi.first.wpilibj.shuffleboard.ShuffleboardTab;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+// import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants.ControllerMapping;
@@ -18,7 +17,7 @@ import frc.robot.Subsystems.Launcher;
 import frc.robot.commands.*;
 import frc.robot.utils.ExtendedJoystick;
 import frc.robot.utils.ExtendedXboxController;
-import frc.robot.utils.InputNormalizer;
+// import frc.robot.utils.InputNormalizer;
 
 public class RobotContainer {
     private final ExtendedJoystick stick = new ExtendedJoystick(ControllerMapping.JOYSTICK);
@@ -34,7 +33,7 @@ public class RobotContainer {
 
     private final Command driveManualCommand = new DriveManualCommand(
             driveTrain,
-            () -> stick.getY() * (stick.getThrottle() * 0.5 + 0.5), () -> -stick.getX(),
+            () -> stick.getY() * (stick.getThrottle() * 0.5 + 0.5), () -> stick.getX(),
             () -> stick.getTop());
 
     private final Command ArmRightManualCommand = new ArmRightManualCommand(armRight,
@@ -65,12 +64,10 @@ public class RobotContainer {
 
     public void autonomousInit() {
         driveTrain.setBrakeMode(true);
-        armRight.resetEncoder();
     }
 
     public void teleopInit() {
         driveTrain.setBrakeMode(false);
-        armRight.resetEncoder();
     }
 
     private void configureButtonBindings() {

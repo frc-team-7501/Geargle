@@ -25,6 +25,7 @@ public class DriveTrain extends SubsystemBase {
 
   private DriveTrain() {
     motorFL.setInverted(true);
+    motorBL.setInverted(true);
 
     motorBL.follow(motorFL);
     motorBR.follow(motorFR);

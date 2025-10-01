@@ -40,6 +40,6 @@ public class ArmRight extends SubsystemBase {
     SmartDashboard.putNumber("right arm", rightPower);
     if (Math.abs(rightPower) < 0.01)
         rightPower = 0;
-    rightArmMotor.set(rightPower * .2);
+    rightArmMotor.set(rightPower * -.2);
   } 
 }
